@@ -5,10 +5,11 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
+	"context"
+	"net"
 )
 
-
+const keyServerAddr = "serverAddr"
 
 func main() {
 
@@ -27,12 +28,14 @@ func main() {
 }
 
 func getRoot(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got / request\n")
+	ctx := r.Context()
+	fmt.Printf("%s: got / request\n", ctx.Value(keyServerAddr))
 	io.WriteString(w, "This is my website!\n")
 }
 
 
 func getHello(w http.ResponseWriter, r *http.Request) {
-	fmt.Printf("got /hello request\n")
+	ctx := r.Context()
+	fmt.Printf("%s: got /hello request\n", ctx.Value(keyServerAddr))
 	io.WriteString(w, "Hello, Http!\n")
 }
