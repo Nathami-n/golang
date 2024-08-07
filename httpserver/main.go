@@ -11,10 +11,12 @@ import (
 
 
 func main() {
-	http.HandleFunc("/", getRoot)
-	http.HandleFunc("/hello", getHello)
 
-	err := http.ListenAndServe(":3333", nil)
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", getRoot)
+	mux.HandleFunc("/hello", getHello)
+
+	err := http.ListenAndServe(":3333", mux)
 
 	if errors.Is(err, http.ErrServerClosed) {
 		fmt.Printf("server closed\n")
