@@ -10,9 +10,16 @@ import (
 func main() {
 	log.SetPrefix("greetings: ")
 	log.SetFlags(0)
-	message, err := greetings.Hello("Nathan")
+	names := []string{"Nathan", "Samantha", "Darrin"}
+
+	greetings_map, err := greetings.Hellos(names)
+
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(message)
+
+	for _, name := range names {
+		fmt.Println(greetings_map[name])
+	}
+
 }
