@@ -12,14 +12,12 @@ func main() {
 	log.SetFlags(0)
 	names := []string{"Nathan", "Samantha", "Darrin"}
 
-	greetings_map, err := greetings.Hellos(names)
+	messages, err := greetings.Hellos(names)
 
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	for _, name := range names {
-		fmt.Println(greetings_map[name])
-	}
+	fmt.Println(messages)
 
 }
