@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import {sendEmail} from '../utils/send-email';
+import { sendEmail } from "../utils/send-email";
 interface EmailBodyTypeRequest extends Request {
   body: {
     from: string;
@@ -23,7 +23,18 @@ export async function handleEmailSend(
   }
 
   try {
-    await sendEmail({from, to, subject, content,})
+    const result = await sendEmail({ from, to, subject, content });
+    if (!result) {
+      return res.status(500).json({
+        error: "an unknown error occurred",
+        data: null,
+      });
+    };
+    
+    res.status(200).json({
+      error: null,
+      data: "Sent successfully",
+    });
   } catch (err: any) {
     res.status(500).json({ error: err.message, data: null });
   }
