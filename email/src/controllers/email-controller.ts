@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { sendEmail } from "../utils/send-email";
+import { sendEmail } from "../utils/send-email.ts";
 interface EmailBodyTypeRequest extends Request {
   body: {
     from: string;

@@ -1,6 +1,6 @@
- {  
-    "verbose": true,
-    "ext": "ts,js",
-    "exec": "ts-node ./src/app.ts",
-    "watch":["src/app.ts"]
- }
+{
+  "verbose": true,
+  "ext": "ts,js",
+  "exec": "ts-node ./src/server.ts",
+  "watch": ["src/app.ts"]
+}

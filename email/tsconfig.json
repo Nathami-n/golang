@@ -1,20 +1,17 @@
 {
-    "compilerOptions": {
-        "target": "es6",
-        "module": "NodeNext",
-        "strict": true,
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "skipLibCheck": true,
-        "sourceMap": true,
-        "outDir": "./dist",
-        "rootDir": "./src",
-        "moduleResolution": "NodeNext",
-        "resolveJsonModule": true,
-        "allowJs": true,
-        "noImplicitAny": true,
-        "noEmitOnError": true,
-    },
-    "include": ["src/**/*"],
-    "exclude": ["node_modules", "dist"]
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "EsNext",
+    "moduleResolution": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*.ts", "src/__tests__/health.spec.mts"],
+  "exclude": ["node_modules", "dist"]
 }

@@ -2,11 +2,10 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
-import os from "os";
+
 import emailRouter from "./routes/email";
 
 const app = express();
-const port = process.env.PORT || 3000;
 
 dotenv.config();
 //generic middleware files
@@ -22,12 +21,4 @@ app.use("/health", function (req: Request, res: Response) {
 
 app.use("/send-email", emailRouter);
 
-//start the server
-(function Start() {
-  app.listen(port as string, function () {
-    const operating_system = os.type();
-    console.log(
-      `server running on os: ${operating_system} using port: ${port}`
-    );
-  });
-})();
+export default app;
