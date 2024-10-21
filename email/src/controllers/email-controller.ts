@@ -16,7 +16,7 @@ export async function handleEmailSend(
   const { from, to, subject, content } = req.body;
 
   if (!from || !to || !subject || !content) {
-    res.status(400).json({
+    return res.status(400).json({
       error: "Please enter the data",
       data: null,
     });
@@ -31,11 +31,11 @@ export async function handleEmailSend(
       });
     };
     
-    res.status(200).json({
+    return res.status(200).json({
       error: null,
       data: "Sent successfully",
     });
   } catch (err: any) {
-    res.status(500).json({ error: err.message, data: null });
+    return res.status(500).json({ error: err.message, data: null });
   }
 }

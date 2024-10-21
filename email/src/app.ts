@@ -3,7 +3,7 @@ import cors from "cors";
 import path from "path";
 import dotenv from "dotenv";
 
-import emailRouter from "./routes/email";
+import emailRouter from "./routes/email.ts";
 
 const app = express();
 

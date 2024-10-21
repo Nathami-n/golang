@@ -1,4 +1,4 @@
-import { transporter } from "../configs/nodemailer";
+import { transporter } from "../configs/nodemailer.ts";
 
 export async function sendEmail(obj: {
   from: string;

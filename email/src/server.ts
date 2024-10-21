@@ -1,6 +1,6 @@
 import os from "os";
 const port = process.env.PORT || 3000;
-import app from "./app";
+import app from "./app.ts";
 
 (function Start() {
   app.listen(port as string, function () {
